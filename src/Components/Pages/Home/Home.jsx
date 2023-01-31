@@ -7,6 +7,7 @@ import Header from "../../Partials/Header/Header";
 import Sidebar from "../../Partials/Sidebar/Sidebar";
 import Hero from "./Hero";
 import { Page } from "../../App/Layout/Page";
+import Favs from "./Favs";
 
 const Home = () => {
   return (
@@ -15,7 +16,7 @@ const Home = () => {
       <Header />
       <Sidebar />
       <Hero />
-      <MainStyled>Main</MainStyled>
+      <MainStyled><Favs /></MainStyled>
       <Footer />
     </GridOne>
   );

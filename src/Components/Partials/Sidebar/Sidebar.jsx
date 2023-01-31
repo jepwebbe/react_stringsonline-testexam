@@ -13,7 +13,6 @@ const Sidebar = () => {
       try {
         const result = await appService.Get("productgroups", id);
         setCategories(result.data.items);
-        console.log(result.data.items);
       } catch (error) {
         console.error(error);
       }

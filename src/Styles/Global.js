@@ -1,6 +1,11 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+@font-face {
+    font-family: "TitiliumWeb";
+    src: local("TitiliumWebBlack"),
+    url("../src/assets/fonts/TitilliumWebBlack.ttf") format('truetype');
+}
 * {
     box-sizing: border-box;
 }
@@ -13,6 +18,7 @@ body {
     width: 100%;
     height: 100%;
     margin: 0 auto;
+    font-family: "TitiliumWeb";
 }
 #root {
     height: 100%;
