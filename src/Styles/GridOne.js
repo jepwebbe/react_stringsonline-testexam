@@ -4,8 +4,9 @@ export const GridOne = ({ children }) => {
   return <StyledGrid>{children}</StyledGrid>;
 };
 const StyledGrid = styled.div`
-  height: 100%;
+  background-color: ${(props) => props.theme.colors.primaryBg};
   display: grid;
+  min-height: 100%;
   color: ${(props) => props.theme.colors.primaryTxt};
   grid-template-columns: ${(props) => props.theme.mobile.columns};
   grid-template-rows: ${(props) => props.theme.mobile.rows};

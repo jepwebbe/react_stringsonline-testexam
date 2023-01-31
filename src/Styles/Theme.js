@@ -32,9 +32,13 @@ export const Theme = {
               `,
   },
   desktopTwo: {
-    rows: "",
-    columns: "",
+    rows: "auto auto 1fr auto",
+    columns: "repeat(12, 1fr)",
     area: `
+    "header header header header header header header header header header header header"
+    "sidebar main main main main main main main main main main main"
+    ". main main main main main main main main main main main"
+    "footer footer footer footer footer footer footer footer footer footer footer footer"
               `,
   },
   mobile: {

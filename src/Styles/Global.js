@@ -16,8 +16,6 @@ body {
 }
 #root {
     height: 100%;
-    background-color: ${(props) => props.theme.colors.primaryBg};
-    ;
 }
 img {
     display: block;

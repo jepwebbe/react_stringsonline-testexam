@@ -6,10 +6,12 @@ import Footer from "../../Partials/Footer/Footer";
 import Header from "../../Partials/Header/Header";
 import Sidebar from "../../Partials/Sidebar/Sidebar";
 import Hero from "./Hero";
+import { Page } from "../../App/Layout/Page";
 
 const Home = () => {
   return (
     <GridOne>
+      <Page title="Velkommen til StringsOnline" description="Dit sted for instrumenter" />
       <Header />
       <Sidebar />
       <Hero />
