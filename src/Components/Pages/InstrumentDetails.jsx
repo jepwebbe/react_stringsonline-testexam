@@ -15,7 +15,7 @@ import { StyledInstrumentDetails } from "./Styled.InstrumentDetails";
 export const InstrumentDetails = () => {
   const [productData, setProductData] = useState("");
   const { id } = useParams();
-    const formatPrice = new Intl.NumberFormat("da-DK", {
+  const formatPrice = new Intl.NumberFormat("da-DK", {
     style: "currency",
     currency: "DKK",
     currencyDisplay: "symbol",
@@ -44,12 +44,11 @@ export const InstrumentDetails = () => {
         <div className="gallery">
           {productData &&
             productData.gallery.map((productImg, i) => (
-
-                <RespImg
+              <RespImg
                 key={i}
-                  src={productImg.fullpath}
-                  alt={productImg.filename}
-                />
+                src={productImg.fullpath}
+                alt={productImg.filename}
+              />
             ))}
         </div>
         <div>

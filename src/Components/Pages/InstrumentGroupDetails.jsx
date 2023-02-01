@@ -1,15 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import useGetApiDataFromEndpoint from "../../Hooks/useGetApiDataFromEndpoint";
-import { GridOne } from "../../Styles/GridOne";
 import { GridTwo } from "../../Styles/GridTwo";
 import { StyledButtonPink } from "../../Styles/Styled.ButtonPink";
-import { MainStyled } from "../../Styles/Styled.Main";
 import appService from "../App/Appservices/AppService";
 import { Page } from "../App/Layout/Page";
 import Footer from "../Partials/Footer/Footer";
 import Header from "../Partials/Header/Header";
+import { RespImg } from "../Partials/RespImg";
 import Sidebar from "../Partials/Sidebar/Sidebar";
 import { StyledInstrumentGroupDetails } from "./Styled.InstrumentGroupDetails";
 
@@ -65,12 +63,7 @@ export const InstrumentGroupDetails = () => {
         {productData &&
           productData.map((product, i) => (
             <article key={i}>
-              <div className="instrumentBox">
-                <img
-                  src={product.image_fullpath}
-                  alt={"et billede af " + product.name}
-                />
-              </div>
+              <RespImg src={product.image_fullpath} alt={"et billede af " + product.name} />
               <div>
                 <h2>{product.name}</h2>
                 <p>
