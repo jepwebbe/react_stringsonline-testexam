@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import useGetApiDataFromEndpoint from "../../../Hooks/useGetApiDataFromEndpoint";
 import appService from "../../App/Appservices/AppService";
 import { StyledSidebar } from "./Styled.Sidebar";
 
@@ -22,16 +21,16 @@ const Sidebar = () => {
   }, [id]);
 
   const convertId = (parent_id) => {
-    if (parent_id == 1) {
+    if (parent_id === "1") {
       return "/guitarer/";
     }
-    if (parent_id == 5) {
+    if (parent_id === "5") {
       return "/basser/";
     }
-    if (parent_id == 8) {
+    if (parent_id === "8") {
       return "/andrestrenge/";
     }
-    if (parent_id == 9) {
+    if (parent_id === "9") {
       return "/keyboards/";
     }
   };

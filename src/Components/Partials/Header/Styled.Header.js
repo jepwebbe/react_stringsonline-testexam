@@ -34,7 +34,9 @@ export const StyledHeader = styled.header`
         border-radius: ${(props) => props.theme.button.radius};
         font-size: 1.5rem;
         padding: 0.2rem 1.5rem;
+        width: 6rem;
         margin-right: 0.7rem;
+        cursor: pointer;
         a {
           color: ${(props) => props.theme.colors.theDarkGreen};
         }

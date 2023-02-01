@@ -1,10 +1,10 @@
 import { createGlobalStyle } from "styled-components";
-
+import Titilium from "../assets/fonts/TitilliumWebRegular.ttf";
 export const GlobalStyles = createGlobalStyle`
 @font-face {
     font-family: "TitiliumWeb";
-    src: local("TitiliumWebBlack"),
-    url("../src/assets/fonts/TitilliumWebBlack.ttf") format('truetype');
+    src: local("TitiliumWeb"),
+    url(${Titilium}) format('truetype');
 }
 * {
     box-sizing: border-box;
@@ -33,5 +33,7 @@ li {
 }
 a {
     text-decoration: none ;
+    font-family: "TitiliumWeb";
+
 }
 `;

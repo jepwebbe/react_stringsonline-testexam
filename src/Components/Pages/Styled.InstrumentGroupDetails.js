@@ -33,16 +33,17 @@ export const StyledInstrumentGroupDetails = styled.div`
     border: 1px solid ${(props) => props.theme.colors.theGrey};
     margin-bottom: 1rem;
     gap: 1.5rem;
-    div.instrumentBox {
+/*     div.instrumentBox {
       width: 100%;
       height: 100%;
       background-color: white;
       display: grid;
+      aspect-ratio: 1 / 1 ;
       img {
         align-self: center;
         transform: rotate(-90deg);
       }
-    }
+    } */
     div {
       a {
         color: ${(props) => props.theme.colors.theGreen};

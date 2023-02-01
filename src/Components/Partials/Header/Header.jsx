@@ -13,9 +13,11 @@ import { useLoginStore } from "../../Login/useLoginStore";
 import { useShoppingCartStore } from "../ShoppingCart/useShoppingCart/useShoppingCart";
 
 const Header = () => {
-  const { loggedIn } = useLoginStore();
+  const { loggedIn, setLoggedIn } = useLoginStore();
   const { cartItems } = useShoppingCartStore();
-
+  const handleLogout = () => {
+    setLoggedIn(false, "", "");
+  };
   return (
     <StyledHeader>
       <nav>
@@ -28,8 +30,7 @@ const Header = () => {
             <NavLink to="/terms">Salgs- og handelsbetingelser</NavLink>
           </li>
           <li>
-            <button>
-              <NavLink to="/login">Login</NavLink>
+            <button>{loggedIn ?  <span onClick={() => handleLogout()}>Logout</span> : <NavLink to="/login">Login</NavLink>}
             </button>
           </li>
         </ul>

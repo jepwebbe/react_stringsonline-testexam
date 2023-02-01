@@ -12,17 +12,7 @@ export const StyledFavs = styled.section`
       display: grid;
       grid-template-columns: 2fr 3fr;
       gap: 1rem;
-      height: 20rem;
-      div.imgContainer {
-        display: grid;
-        place-items: center;
-        position: relative;
-        background-color: white;
-        img {
-          transform: rotate(-90deg);
-          width: 125%;
-        }
-      }
+
       div.buy {
         display: flex;
         align-items: center;

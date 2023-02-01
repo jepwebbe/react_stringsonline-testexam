@@ -1,21 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 const StyledContainer = styled.div`
-  height: 100%;
   width: 100%;
+  height: 100%;
   background-color: white;
-  display: flex;
-  align-items: center;
+  display: grid;
+  aspect-ratio: 1 / 1;
 `;
 
 const StyledImage = styled.img`
-  transform: rotate(90deg);
-  height: auto;
+  align-self: center;
+  transform: rotate(-90deg);
   width: ${(props) => props.width}px;
-
+  height: auto;
 `;
 
-export const RespImg = ({ src }) => {
+export const RespImg = ({ src, alt }) => {
   const containerRef = useRef(null);
   const [width, setWidth] = useState(0);
 
@@ -27,7 +27,7 @@ export const RespImg = ({ src }) => {
 
   return (
     <StyledContainer ref={containerRef}>
-      <StyledImage src={src} width={width} />
+      <StyledImage src={src} width={width} alt={alt} />
     </StyledContainer>
   );
 };
