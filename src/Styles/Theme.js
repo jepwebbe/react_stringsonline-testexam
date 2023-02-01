@@ -27,7 +27,7 @@ export const Theme = {
     area: `
     "header header header header header header header header header header header header"
     "sidebar hero hero hero hero hero hero hero hero hero hero hero"
-    "main main main main main main main main main main main main"
+    ". main main main main main main main main main main main"
     "footer footer footer footer footer footer footer footer footer footer footer footer"
               `,
   },

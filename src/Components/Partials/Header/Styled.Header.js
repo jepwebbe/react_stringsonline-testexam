@@ -31,11 +31,13 @@ export const StyledHeader = styled.header`
       button {
         background-color: ${(props) => props.theme.colors.theGreen};
         border: none;
-        color: ${(props) => props.theme.colors.theDarkGreen};
         border-radius: ${(props) => props.theme.button.radius};
         font-size: 1.5rem;
         padding: 0.2rem 1.5rem;
         margin-right: 0.7rem;
+        a {
+          color: ${(props) => props.theme.colors.theDarkGreen};
+        }
       }
     }
   }
@@ -50,10 +52,29 @@ export const StyledHeader = styled.header`
       align-items: center;
       margin-bottom: 1rem;
     }
-    > img {
-      width: 2.4rem;
-      height: 2.3rem;
+    .cartContainer {
+      display: flex;
+      > img {
+        width: 2.4rem;
+        height: 2.3rem;
+      }
+      div.cartNumber {
+        height: 1.5rem;
+        width: 1.5rem;
+        background-color: ${(props) => props.theme.colors.thePurple};
+        border-radius: 50%;
+        margin: auto 0 auto -0.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        p {
+          color: white;
+          font-size: 1.2rem;
+          font-weight: bold;
+        }
+      }
     }
+
     p {
       margin: 0;
       padding: 0 1rem;

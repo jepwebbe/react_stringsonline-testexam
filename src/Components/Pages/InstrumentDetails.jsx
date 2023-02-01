@@ -8,6 +8,7 @@ import appService from "../App/Appservices/AppService";
 import { Page } from "../App/Layout/Page";
 import Footer from "../Partials/Footer/Footer";
 import Header from "../Partials/Header/Header";
+import { RespImg } from "../Partials/RespImg";
 import Sidebar from "../Partials/Sidebar/Sidebar";
 import { StyledInstrumentDetails } from "./Styled.InstrumentDetails";
 
@@ -43,12 +44,12 @@ export const InstrumentDetails = () => {
         <div className="gallery">
           {productData &&
             productData.gallery.map((productImg, i) => (
-              <div key={i}>
-                <img
+
+                <RespImg
+                key={i}
                   src={productImg.fullpath}
                   alt={productImg.filename}
                 />
-              </div>
             ))}
         </div>
         <div>

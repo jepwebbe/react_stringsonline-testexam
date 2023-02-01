@@ -12,17 +12,7 @@ export const StyledInstrumentDetails = styled.article`
     place-items: center;
     grid-auto-rows: 1fr;
     gap: 1rem;
-    > div {
-      width: 100%;
-      height: auto;
-      background: white;
-      display: grid;
-    }
-    img {
-      align-self: center;
-      width: auto;
-      height: 100%;
-    }
+
   }
   > div {
     display: flex;

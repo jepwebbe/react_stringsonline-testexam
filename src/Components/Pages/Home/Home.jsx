@@ -16,7 +16,7 @@ const Home = () => {
       <Header />
       <Sidebar />
       <Hero />
-      <MainStyled><Favs /></MainStyled>
+      <Favs />
       <Footer />
     </GridOne>
   );

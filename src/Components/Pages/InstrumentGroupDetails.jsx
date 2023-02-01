@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import useGetApiDataFromEndpoint from "../../Hooks/useGetApiDataFromEndpoint";
 import { GridOne } from "../../Styles/GridOne";
 import { GridTwo } from "../../Styles/GridTwo";
 import { StyledButtonPink } from "../../Styles/Styled.ButtonPink";
@@ -14,6 +15,8 @@ import { StyledInstrumentGroupDetails } from "./Styled.InstrumentGroupDetails";
 
 export const InstrumentGroupDetails = () => {
   const [productData, setProductData] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Producent");
+
   const { id } = useParams();
   const formatPrice = new Intl.NumberFormat("da-DK", {
     style: "currency",
@@ -41,6 +44,24 @@ export const InstrumentGroupDetails = () => {
       <Header />
       <Sidebar />
       <StyledInstrumentGroupDetails>
+        <div>
+          <label htmlFor="producer">
+
+              <select
+                name="producer"
+              >
+                <option value="Producent">Producent</option>
+                {productData &&
+                  productData.map((producer, ind) => (
+                    <option key={ind} value={producer.brand}>
+                      {producer.brand}
+                    </option>
+                  ))}
+              </select>
+          </label>
+          <label htmlFor="sorting">Sorter efter...</label>
+        </div>
+
         {productData &&
           productData.map((product, i) => (
             <article key={i}>

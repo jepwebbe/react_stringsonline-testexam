@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import useGetApiDataFromEndpoint from "../../../Hooks/useGetApiDataFromEndpoint";
 import appService from "../../App/Appservices/AppService";
 import { StyledSidebar } from "./Styled.Sidebar";
 
@@ -19,7 +20,6 @@ const Sidebar = () => {
     };
     getCategories();
   }, [id]);
-
 
   const convertId = (parent_id) => {
     if (parent_id == 1) {
@@ -64,6 +64,8 @@ const Sidebar = () => {
             )}
           </li>
         ))}
+        <li><Link to="/brands">Brands</Link></li>
+       
       </ul>
     </StyledSidebar>
   );
