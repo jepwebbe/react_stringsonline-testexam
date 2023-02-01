@@ -2,16 +2,20 @@ import React from "react";
 import { StyledHeader } from "./Styled.Header";
 import headerBg from "../../../assets/images/headerBg.png";
 import cart from "../../../assets/images/cartIcon.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Search from "../Search/Search";
-import { FaPhoneAlt } from "react-icons/fa"
+import { FaPhoneAlt } from "react-icons/fa";
 
 import useGetApiDataFromEndpoint from "../../../Hooks/useGetApiDataFromEndpoint";
 import Breadcrumbs from "./Breadcrumbs";
+import Modal from "../../Modal/Modal";
+import { useLoginStore } from "../../Login/useLoginStore";
+import { useShoppingCartStore } from "../ShoppingCart/useShoppingCart/useShoppingCart";
 
+const Header = () => {
+  const { loggedIn } = useLoginStore();
+  const { cartItems } = useShoppingCartStore();
 
-const Header = () => { 
- 
   return (
     <StyledHeader>
       <nav>
@@ -21,24 +25,42 @@ const Header = () => {
             <NavLink to="/">Forside</NavLink>
           </li>
           <li>
-            <NavLink to="terms">Salgs- og handelsbetingelser</NavLink>
+            <NavLink to="/terms">Salgs- og handelsbetingelser</NavLink>
           </li>
           <li>
-            <button>Login</button>
+            <button>
+              <NavLink to="/login">Login</NavLink>
+            </button>
           </li>
         </ul>
       </nav>
       <div className="rightBox">
         <div>
-          <a href="mailto:sales@stringsonline.com" target="_blank" rel="noreferrer">
+          <a
+            href="mailto:sales@stringsonline.com"
+            target="_blank"
+            rel="noreferrer"
+          >
             SALES@STRINGSONLINE.COM
           </a>
-          <p><FaPhoneAlt className="phone"/>+45 98 12 22 68</p>
-          <img src={cart} alt="Din indkøbskurv" />
+          <p>
+            <FaPhoneAlt className="phone" />
+            +45 98 12 22 68
+          </p>
+          <Link to={loggedIn ? "/bruger" : "/login"}>
+            <div className="cartContainer">
+              <img src={cart} alt="Din indkøbskurv" />
+              <div className="cartNumber">
+                <p>{cartItems.length}</p>
+              </div>
+            </div>
+          </Link>
         </div>
         <Search />
       </div>
-      <div className="breadcrumbs"><Breadcrumbs /></div>
+      <div className="breadcrumbs">
+        <Breadcrumbs />
+      </div>
     </StyledHeader>
   );
 };
