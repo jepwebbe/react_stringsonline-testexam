@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import useGetByIdApiDataFromEndpoint from "../../Hooks/useGetByIdApiDataFromEndpoint";
-import { GridTwo } from "../../Styles/GridTwo";
+import { useParams } from "react-router-dom";
 import { StyledButtonPink } from "../../Styles/Styled.ButtonPink";
 import { MainStyled } from "../../Styles/Styled.Main";
 import appService from "../App/Appservices/AppService";
 import { Page } from "../App/Layout/Page";
-import Footer from "../Partials/Footer/Footer";
-import Header from "../Partials/Header/Header";
-import { RespImg } from "../Partials/RespImg";
-import Sidebar from "../Partials/Sidebar/Sidebar";
+import { RespImg } from "../../Styles/RespImg";
 import { StyledInstrumentDetails } from "./Styled.InstrumentDetails";
 
 export const InstrumentDetails = () => {

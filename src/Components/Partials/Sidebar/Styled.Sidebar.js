@@ -4,6 +4,7 @@ export const StyledSidebar = styled.div`
   padding: 0 ${(props) => props.theme.space.padding};
   margin: 0 auto;
   grid-area: sidebar;
+  height: 25rem;
   ul {
     padding: 1rem 2rem 0;
     margin: 0;

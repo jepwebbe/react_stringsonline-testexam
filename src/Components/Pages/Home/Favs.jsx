@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useGetByIdApiDataFromEndpoint from "../../../Hooks/useGetByIdApiDataFromEndpoint";
 import { StyledButtonPink } from "../../../Styles/Styled.ButtonPink";
-import { RespImg } from "../../Partials/RespImg";
+import { RespImg } from "../../../Styles/RespImg";
 import { useShoppingCartStore } from "../../Partials/ShoppingCart/useShoppingCart/useShoppingCart";
-import { StyledFavs } from "./Styled.Favs";
+import { StyledFavs } from "../../../Styles/Styled.Favs";
 
 const Favs = () => {
   const { state: best } = useGetByIdApiDataFromEndpoint(
@@ -15,7 +15,7 @@ const Favs = () => {
   const { increaseCartQuantity } = useShoppingCartStore();
 
   return (
-    <StyledFavs>
+    <StyledFavs gridArea="main">
       <h2>Kundernes favoritter</h2>
       <div>
         {best

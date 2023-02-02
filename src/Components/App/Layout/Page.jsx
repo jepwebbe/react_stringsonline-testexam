@@ -20,7 +20,7 @@ const Page = (props) => {
 };
 
 const ContentWrapper = (props) => {
-  return <section className="container">{props.children}</section>;
+  return <div className="container">{props.children}</div>;
 };
 
 export { Page, ContentWrapper };

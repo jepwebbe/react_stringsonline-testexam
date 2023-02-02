@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFavs = styled.section`
   padding: 0 2rem;
-  grid-area: main;
+  grid-area: ${props => props.gridArea};
   font-size: 1.2rem;
   > div {
     display: grid;

@@ -102,6 +102,7 @@ export const StyledHeader = styled.header`
         width: 3rem;
         height: 3rem;
         margin-left: 1rem;
+        cursor: pointer;
       }
     }
   }

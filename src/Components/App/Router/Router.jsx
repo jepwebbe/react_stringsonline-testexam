@@ -8,6 +8,7 @@ import Home from "../../Pages/Home/Home";
 import { InstrumentDetails } from "../../Pages/InstrumentDetails";
 import { InstrumentGroupDetails } from "../../Pages/InstrumentGroupDetails";
 import LoginPage from "../../Pages/Login/LoginPage";
+import SearchResults from "../../Pages/SearchResults";
 import Terms from "../../Pages/Terms/Terms";
 import User from "../../Pages/User/User";
 
@@ -29,6 +30,7 @@ const Router = () => {
       <Route path="/brands/:id/:id" element={<BrandDetailsInstrument />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/bruger" element={<User />} />
+      <Route path="/search" element={<SearchResults />} />
 
 
 

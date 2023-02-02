@@ -1,13 +1,8 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import useGetApiDataFromEndpoint from "../../Hooks/useGetApiDataFromEndpoint";
-import useGetByIdApiDataFromEndpoint from "../../Hooks/useGetByIdApiDataFromEndpoint";
-import { GridTwo } from "../../Styles/GridTwo";
 import { MainStyled } from "../../Styles/Styled.Main";
 import { Page } from "../App/Layout/Page";
-import Footer from "../Partials/Footer/Footer";
-import Header from "../Partials/Header/Header";
-import Sidebar from "../Partials/Sidebar/Sidebar";
 
 function Brands() {
   const { state: brands } = useGetApiDataFromEndpoint("brands", "items");

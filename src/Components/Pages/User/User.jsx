@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { GridTwo } from "../../../Styles/GridTwo";
 import { MainStyled } from "../../../Styles/Styled.Main";
 import appService from "../../App/Appservices/AppService";
 import { Page } from "../../App/Layout/Page";
-import Footer from "../../Partials/Footer/Footer";
-import Header from "../../Partials/Header/Header";
 import ShoppingCart from "../../Partials/ShoppingCart/ShoppingCart";
-import Sidebar from "../../Partials/Sidebar/Sidebar";
 
 const User = () => {
   const [order, setOrder] = useState("");

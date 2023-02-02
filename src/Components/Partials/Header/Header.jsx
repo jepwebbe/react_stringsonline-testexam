@@ -1,19 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyledHeader } from "./Styled.Header";
 import headerBg from "../../../assets/images/headerBg.png";
 import cart from "../../../assets/images/cartIcon.png";
 import { Link, NavLink } from "react-router-dom";
 import Search from "../Search/Search";
 import { FaPhoneAlt } from "react-icons/fa";
-
-import useGetApiDataFromEndpoint from "../../../Hooks/useGetApiDataFromEndpoint";
 import Breadcrumbs from "./Breadcrumbs";
-import Modal from "../../Modal/Modal";
 import { useLoginStore } from "../../Login/useLoginStore";
 import { useShoppingCartStore } from "../ShoppingCart/useShoppingCart/useShoppingCart";
 
 const Header = () => {
   const { loggedIn, setLoggedIn } = useLoginStore();
+  const [searchResults, setSearchResults] = useState([]);
   const { cartItems } = useShoppingCartStore();
   const handleLogout = () => {
     setLoggedIn(false, "", "");
