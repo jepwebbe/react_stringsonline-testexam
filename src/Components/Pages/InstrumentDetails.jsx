@@ -33,13 +33,11 @@ export const InstrumentDetails = () => {
     getData();
   }, [id]);
   return (
-    <GridTwo>
+    <MainStyled>
       <Page
         title={`StringsOnline - ${productData && productData.title}`}
         description="Dit sted for instrumenter"
       />
-      <Header />
-      <Sidebar />
       <StyledInstrumentDetails>
         <div className="gallery">
           {productData &&
@@ -72,7 +70,6 @@ export const InstrumentDetails = () => {
           <div>{productData && productData.rating}</div>
         </div>
       </StyledInstrumentDetails>
-      <Footer />
-    </GridTwo>
+    </MainStyled>
   );
 };

@@ -10,20 +10,14 @@ import Header from "../Partials/Header/Header";
 import Sidebar from "../Partials/Sidebar/Sidebar";
 
 function Brands() {
-  const { state: brands } = useGetApiDataFromEndpoint(
-    "brands",
-    "items"
-  );
+  const { state: brands } = useGetApiDataFromEndpoint("brands", "items");
 
   return (
-    <GridTwo>
+    <>
       <Page
         title="StringsOnline - Brands"
         description="Dit sted for instrumenter"
       />
-      <Header />
-      <Sidebar />
-
       <MainStyled>
         <h2>Brands</h2>
         <ul>
@@ -32,14 +26,16 @@ function Brands() {
               <li key={i}>
                 <h3>{brand.title}</h3>
                 <Link to={brand.id}>
-                  <img src={brand.image_fullpath} alt={brand.title + "s logo" }/>
+                  <img
+                    src={brand.image_fullpath}
+                    alt={brand.title + "s logo"}
+                  />
                 </Link>
               </li>
             ))}
         </ul>
       </MainStyled>
-      <Footer />
-    </GridTwo>
+    </>
   );
 }
 

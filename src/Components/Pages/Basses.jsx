@@ -7,13 +7,11 @@ import Sidebar from "../Partials/Sidebar/Sidebar";
 import { Page } from "../App/Layout/Page";
 const Basses = () => {
   return (
-    <GridOne>
+    <>
       <Page title="StringsOnline - Guitarer" description="Dit sted for guitarer" />
-      <Header />
-      <Sidebar />
       <MainStyled>Main</MainStyled>
-      <Footer />
-    </GridOne>  )
+      </>
+)
 }
 
 export default Basses

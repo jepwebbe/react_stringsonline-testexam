@@ -11,13 +11,11 @@ import { StyledLoginPage } from "./LoginPage.Styled.js";
 
 const LoginPage = () => {
   return (
-    <GridTwo>
+    <>
       <Page
         title="StringsOnline"
         description="Dit sted for instrumenter"
       />
-      <Header />
-      <Sidebar />
       <MainStyled>
         <StyledLoginPage>
           <h2>Log ind på StringsOnline</h2>
@@ -29,8 +27,7 @@ const LoginPage = () => {
           <LoginCreate />
         </StyledLoginPage>
       </MainStyled>
-      <Footer />
-    </GridTwo>
+    </>
   );
 };
 

@@ -25,14 +25,11 @@ function BrandsDetails() {
   }, [id]);
   console.log(brand.products);
   return (
-    <GridTwo>
-      <Page
+    <>
+    <Page
         title="StringsOnline - Brands"
         description="Dit sted for instrumenter"
       />
-      <Header />
-      <Sidebar />
-
       <MainStyled>
         <h2>{brand && brand.title}</h2>
         <img src={brand.image_fullpath} alt={brand.title + "s logo"} />
@@ -45,8 +42,7 @@ function BrandsDetails() {
             ))}
         </ul>
       </MainStyled>
-      <Footer />
-    </GridTwo>
+    </>
   );
 }
 

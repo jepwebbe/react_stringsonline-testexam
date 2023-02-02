@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { GridTwo } from "../../Styles/GridTwo";
 import { StyledButtonPink } from "../../Styles/Styled.ButtonPink";
+import { MainStyled } from "../../Styles/Styled.Main";
 import appService from "../App/Appservices/AppService";
 import { Page } from "../App/Layout/Page";
 import Footer from "../Partials/Footer/Footer";
@@ -34,13 +35,11 @@ export const InstrumentGroupDetails = () => {
   }, [id]);
 
   return (
-    <GridTwo>
+    <MainStyled>
       <Page
         title="StringsOnline - Keyboards"
         description="Dit sted for keyboards"
       />
-      <Header />
-      <Sidebar />
       <StyledInstrumentGroupDetails>
         <div>
           <label htmlFor="producer">
@@ -79,7 +78,6 @@ export const InstrumentGroupDetails = () => {
             </article>
           ))}
       </StyledInstrumentGroupDetails>
-      <Footer />
-    </GridTwo>
+    </MainStyled>
   );
 };

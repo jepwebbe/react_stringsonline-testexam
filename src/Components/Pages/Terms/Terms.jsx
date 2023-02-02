@@ -8,13 +8,14 @@ import Sidebar from "../../Partials/Sidebar/Sidebar";
 
 const Terms = () => {
   return (
-    <GridTwo>
-      <Page title="StringsOnline - Forretningsbetingelser" description="Dit sted for guitarer" />
-      <Header />
-      <Sidebar />
+    <>
+      <Page
+        title="StringsOnline - Forretningsbetingelser"
+        description="Dit sted for guitarer"
+      />
       <MainStyled>Terms</MainStyled>
-      <Footer />
-    </GridTwo>  )
-}
+    </>
+  );
+};
 
-export default Terms
+export default Terms;

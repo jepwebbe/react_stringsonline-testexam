@@ -11,14 +11,14 @@ import Favs from "./Favs";
 
 const Home = () => {
   return (
-    <GridOne>
-      <Page title="Velkommen til StringsOnline" description="Dit sted for instrumenter" />
-      <Header />
-      <Sidebar />
+    <>
+      <Page
+        title="Velkommen til StringsOnline"
+        description="Dit sted for instrumenter"
+      />
       <Hero />
       <Favs />
-      <Footer />
-    </GridOne>
+    </>
   );
 };
 

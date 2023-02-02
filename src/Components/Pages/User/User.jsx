@@ -9,33 +9,26 @@ import ShoppingCart from "../../Partials/ShoppingCart/ShoppingCart";
 import Sidebar from "../../Partials/Sidebar/Sidebar";
 
 const User = () => {
-    const [order, setOrder] = useState("");
-    console.log("bruger" + order)
-    useEffect(() => {
-      const getData = async () => {
-    try {
-
-          const result = await appService.Get("orders");
-          setOrder(result.data);
-        } catch (error) {
-          console.error(error);
-        } 
-      };
-      getData();
-    }, []);
+  const [order, setOrder] = useState("");
+  console.log("bruger" + order);
+  useEffect(() => {
+    const getData = async () => {
+      try {
+        const result = await appService.Get("orders");
+        setOrder(result.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getData();
+  }, []);
   return (
-    <GridTwo>
-      <Page
-        title="StringsOnline"
-        description="Dit sted for instrumenter"
-      />
-      <Header />
-      <Sidebar />
+    <>
+      <Page title="StringsOnline" description="Dit sted for instrumenter" />
       <MainStyled>
         <ShoppingCart />
       </MainStyled>
-      <Footer />
-    </GridTwo>
+    </>
   );
 };
 
