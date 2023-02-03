@@ -42,9 +42,7 @@ export const StyledCheckout = styled.section`
       height: 4rem;
       border-radius: ${(props) => props.theme.button.radius};
       margin-left: auto;
-      a {
-        color: ${(props) => props.theme.colors.theDarkGreen};
-      }
+      cursor: pointer;
     }
   }
 `;
