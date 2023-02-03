@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.header`
+  background-color: black;
   display: grid;
   align-content: center;
   grid-area: header;
@@ -14,7 +15,6 @@ export const StyledHeader = styled.header`
     margin: auto 0;
     font-size: 1.5rem;
     max-width: 1220px;
-
     img {
       grid-column: 1 / -1;
       grid-row: 1;
@@ -130,5 +130,28 @@ export const StyledHeader = styled.header`
       width: 1.8rem;
       height: 1.7rem;
     }
+  }
+  @media (max-width: ${(props) => props.theme.breakpoints.m}) {
+    grid-template-rows: 2fr 2fr 1fr;
+    nav  {
+      grid-area: 1 / span 12 ;
+    }
+   div.rightBox {
+    grid-area: 2 / 1 / 2 / span 12;
+    display: flex;
+    height: 100%;
+    justify-self: center;
+    flex-direction: row-reverse;
+    gap: 1rem;
+    >div {
+      margin: 0;
+    }
+    form button {
+      margin: 0;
+    }
+  }
+  .breadcrumbs {
+    grid-area: 3/1
+  }
   }
 `;

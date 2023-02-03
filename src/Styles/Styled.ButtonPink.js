@@ -7,4 +7,5 @@ color: white;
 width: 10rem;
 height: 2.8rem;
 border-radius: ${props => props.theme.button.radius};
+cursor: pointer;
 `

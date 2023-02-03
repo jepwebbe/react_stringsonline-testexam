@@ -13,12 +13,16 @@ html {
     font-size: 16px;
     scroll-behavior: smooth;
     height: 100%;
+    @media (max-width: ${(props) => props.theme.breakpoints.l}) {
+        font-size: 12px;
+    }
 }
 body {
     width: 100%;
     height: 100%;
     margin: 0 auto;
     font-family: "TitiliumWeb";
+
 }
 #root {
     height: 100%;

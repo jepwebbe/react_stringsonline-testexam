@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { StyledButtonPink } from "../../Styles/Styled.ButtonPink";
 import { MainStyled } from "../../Styles/Styled.Main";
 import appService from "../App/Appservices/AppService";
 import { Page } from "../App/Layout/Page";
 import { RespImg } from "../../Styles/RespImg";
 import { StyledInstrumentDetails } from "./Styled.InstrumentDetails";
+import { useShoppingCartStore } from "../Partials/ShoppingCart/useShoppingCart/useShoppingCart";
+import useGetApiDataFromEndpoint from "../../Hooks/useGetApiDataFromEndpoint";
 
 export const InstrumentDetails = () => {
   const [productData, setProductData] = useState("");
@@ -15,6 +17,8 @@ export const InstrumentDetails = () => {
     currency: "DKK",
     currencyDisplay: "symbol",
   });
+  const { increaseCartQuantity } = useShoppingCartStore();
+
   useEffect(() => {
     const getData = async () => {
       try {
@@ -51,15 +55,32 @@ export const InstrumentDetails = () => {
 
         <div>
           <div className="brandlogo">
-            <img
-              src={productData && productData.brand_image}
-              alt={"Et billede af" + productData.brand + "s logo"}
-            />
+            <Link to={"/brands"}>
+              <img
+                src={productData && productData.brand_image}
+                alt={"Et billede af" + productData.brand + "s logo"}
+              />
+            </Link>
           </div>
-          <p>{productData && formatPrice.format(productData.price)}</p>
+          {+productData.offerprice > 1 ? (
+            <p>TILBUD {formatPrice.format(productData.offerprice)}</p>
+          ) : (
+            <p>Pris {formatPrice.format(productData.price)}</p>
+          )}
           <div className="choose">
             <input type="number" />{" "}
-            <StyledButtonPink>Læg i Kurv</StyledButtonPink>
+            <StyledButtonPink
+              onClick={() =>
+                increaseCartQuantity(
+                  productData.id,
+                  productData.price,
+                  1,
+                  productData.name
+                )
+              }
+            >
+              Læg i Kurv
+            </StyledButtonPink>
           </div>
           <p>{productData && productData.stock}+ på lager</p>
           <div>{productData && productData.rating}</div>

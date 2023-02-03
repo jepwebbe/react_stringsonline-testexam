@@ -41,37 +41,39 @@ export const Theme = {
     "footer footer footer footer footer footer footer footer footer footer footer footer"
               `,
   },
-  mobile: {
-    rows: "auto auto 1fr auto",
-    columns: "1fr",
-    area: `
-      "header"
-      "hero"
-      "main"
-      "footer"
-            `,
-  },
-  mobileTwo: {
-    rows: "",
-    columns: "",
-    area: `
-              
-              `,
-  },
   tablet: {
-    rows: "auto auto 1fr auto",
-    columns: "1fr",
+    rows: "auto auto auto 1fr auto",
+    columns: "repeat(12, 1fr)",
     area: `
-      "header"
-      "hero"
-      "main"
-      "footer"
+    "header header header header header header header header header header header header"
+    "hero hero hero hero hero hero hero hero hero hero hero hero"
+    "sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar sidebar"
+    "main main main main main main main main main main main main"
+    "footer footer footer footer footer footer footer footer footer footer footer footer"
               `,
   },
   tabletTwo: {
     rows: "",
     columns: "",
     area: `
+              `,
+  },
+  mobile: {
+    rows: "auto auto auto 1fr auto",
+    columns: "1fr 1fr",
+    area: `
+    "header header"
+    "hero hero"
+    "sidebar sidebar"
+    "main main"
+    "footer footer"
+              `,
+  },
+  mobileTwo: {
+    rows: "",
+    columns: "",
+    area: `
+              
               `,
   },
 

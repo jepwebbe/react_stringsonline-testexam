@@ -1,6 +1,7 @@
 import React from "react";
 import { useShoppingCartStore } from "./useShoppingCart/useShoppingCart";
 import styled from "styled-components";
+import Dummycart from "./Dummycart";
 
 const ShoppingCart = () => {
   const {
@@ -17,6 +18,7 @@ const ShoppingCart = () => {
 
   return (
     <CartStyled>
+      <Dummycart />
       <ul>
         {cartItems.map((item, ind) => (
           <li key={ind}>
@@ -37,7 +39,7 @@ const ShoppingCart = () => {
             >
               -
             </button>
-            <p>    stk {item.name} til {item.price} stk, i alt{" "}
+            <p>    stk {item.title} til {item.price} stk, i alt{" "}
               {item.amount * item.price}
             </p>
             <button onClick={() => setDeleteItem(item.id)}>X</button>

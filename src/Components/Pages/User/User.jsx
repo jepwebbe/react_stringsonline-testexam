@@ -6,7 +6,6 @@ import ShoppingCart from "../../Partials/ShoppingCart/ShoppingCart";
 
 const User = () => {
   const [order, setOrder] = useState("");
-  console.log("bruger" + order);
   useEffect(() => {
     const getData = async () => {
       try {

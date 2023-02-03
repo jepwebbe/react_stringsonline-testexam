@@ -7,10 +7,12 @@ import appService from "../App/Appservices/AppService";
 import { Page } from "../App/Layout/Page";
 import { RespImg } from "../../Styles/RespImg";
 import { StyledInstrumentGroupDetails } from "./Styled.InstrumentGroupDetails";
+import { useShoppingCartStore } from "../Partials/ShoppingCart/useShoppingCart/useShoppingCart";
 
 export const InstrumentGroupDetails = () => {
   const [productData, setProductData] = useState("");
   const [selectedOption, setSelectedOption] = useState("Producent");
+  const { increaseCartQuantity } = useShoppingCartStore();
 
   const { id } = useParams();
   const formatPrice = new Intl.NumberFormat("da-DK", {
@@ -39,18 +41,15 @@ export const InstrumentGroupDetails = () => {
       <StyledInstrumentGroupDetails>
         <div>
           <label htmlFor="producer">
-
-              <select
-                name="producer"
-              >
-                <option value="Producent">Producent</option>
-                {productData &&
-                  productData.map((producer, ind) => (
-                    <option key={ind} value={producer.brand}>
-                      {producer.brand}
-                    </option>
-                  ))}
-              </select>
+            <select name="producer">
+              <option value="Producent">Producent</option>
+              {productData &&
+                productData.map((producer, ind) => (
+                  <option key={ind} value={producer.brand}>
+                    {producer.brand}
+                  </option>
+                ))}
+            </select>
           </label>
           <label htmlFor="sorting">Sorter efter...</label>
         </div>
@@ -58,7 +57,10 @@ export const InstrumentGroupDetails = () => {
         {productData &&
           productData.map((product, i) => (
             <article key={i}>
-              <RespImg src={product.image_fullpath} alt={"et billede af " + product.name} />
+              <RespImg
+                src={product.image_fullpath}
+                alt={"et billede af " + product.name}
+              />
               <div>
                 <h2>{product.name}</h2>
                 <p>
@@ -67,8 +69,23 @@ export const InstrumentGroupDetails = () => {
                 </p>
               </div>
               <div className="stockBox">
-                <p>Pris {formatPrice.format(product.price)}</p>
-                <StyledButtonPink>Læg i kurv</StyledButtonPink>
+                {+product.offerprice > 1 ? (
+                  <p>TILBUD {formatPrice.format(product.offerprice)}</p>
+                ) : (
+                  <p>Pris {formatPrice.format(product.price)}</p>
+                )}
+                <StyledButtonPink
+                  onClick={() =>
+                    increaseCartQuantity(
+                      product.id,
+                      product.price,
+                      1,
+                      product.name
+                    )
+                  }
+                >
+                  Læg i kurv
+                </StyledButtonPink>
                 <p>{product.stock}+ på lager</p>
               </div>
             </article>

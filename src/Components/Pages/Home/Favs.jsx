@@ -30,7 +30,7 @@ const Favs = () => {
                     alt={item.filename}
                   />
                   <div>
-                    <h2>{item.title}</h2>
+                    <h2>{item.name}</h2>
                     <p>
                       {item.description_long.substring(0, 230)}{" "}
                       <Link to={"guitarer/2/" + item.id}>Læs mere</Link>
@@ -43,7 +43,7 @@ const Favs = () => {
                             item.id,
                             item.price,
                             1,
-                            item.title
+                            item.name
                           )
                         }
                       >

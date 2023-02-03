@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import appService from "../../App/Appservices/AppService";
-import { StyledSidebar } from "./Styled.Sidebar";
+import { StyledSidebar, StyledSidebarButton } from "./Styled.Sidebar";
 
 const Sidebar = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const { id } = useParams();
+
+  const [menuVisible, setMenuVisible] = useState(window.innerWidth >= 768);
+
+  const toggleMenuVisibility = () => {
+    setMenuVisible(!menuVisible);
+  };
 
   useEffect(() => {
     const getCategories = async () => {
@@ -36,36 +42,42 @@ const Sidebar = () => {
   };
   return (
     <StyledSidebar>
-      <ul>
-        {categories.map((item) => (
-          <li key={item.id}>
-            <Link
-              onClick={() =>
-                setSelectedCategory(
-                  selectedCategory === item.id ? null : item.id
-                )
-              }
-            >
-              {item.title}
-            </Link>
-            {selectedCategory === item.id && item.subgroups && (
-              <ul>
-                {item.subgroups.map((subCategory) => (
-                  <li key={subCategory.id}>
-                    <Link
-                      to={convertId(subCategory.parent_id) + subCategory.id}
-                    >
-                      {subCategory.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
+      <StyledSidebarButton onClick={toggleMenuVisibility}>
+        Kategorier
+      </StyledSidebarButton>
+      <div className="categoriesBox"  style={{ display: menuVisible ? "block" : "none" }}>
+        <ul>
+          {categories.map((item) => (
+            <li key={item.id}>
+              <Link
+                onClick={() =>
+                  setSelectedCategory(
+                    selectedCategory === item.id ? null : item.id
+                  )
+                }
+              >
+                {item.title}
+              </Link>
+              {selectedCategory === item.id && item.subgroups && (
+                <ul>
+                  {item.subgroups.map((subCategory) => (
+                    <li key={subCategory.id}>
+                      <Link
+                        to={convertId(subCategory.parent_id) + subCategory.id}
+                      >
+                        {subCategory.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+          <li>
+            <Link to="/brands">Brands</Link>
           </li>
-        ))}
-        <li><Link to="/brands">Brands</Link></li>
-       
-      </ul>
+        </ul>
+      </div>
     </StyledSidebar>
   );
 };

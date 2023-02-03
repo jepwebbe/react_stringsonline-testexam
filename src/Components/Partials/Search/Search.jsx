@@ -5,7 +5,6 @@ import { useSearchResultsStore } from "./useSearchResultStore";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
-  const [noResults, setNoResults] = useState(false);
   const { searchResults, setSearchResults } = useSearchResultsStore()
   const navigate = useNavigate();
   // const {state: results} = useGetApiDataFromEndpoint("search", searchTerm)
@@ -23,7 +22,6 @@ const Search = () => {
       const results = await response.json();
 
       setSearchResults(results);
-      results.length === 0 ? setNoResults(true) : setNoResults(false);
     } catch (error) {
       console.error(error);
     }
@@ -41,7 +39,6 @@ const Search = () => {
       <button type="submit">
         <FaArrowRight />
       </button>
-      {noResults ? <p>Din søgning gav ingen resultater</p> : null}
     </form>
   );
 };

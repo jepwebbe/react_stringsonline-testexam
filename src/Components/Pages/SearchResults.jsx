@@ -14,7 +14,7 @@ const SearchResults = () => {
   return (
     <StyledFavs gridArea="hero">
       <Page title="StringsOnline - Søgeresultat">
-        {searchResults
+        {searchResults && searchResults.items && searchResults.items.length > 0
           ? searchResults.items.map((item, i) => (
               <article key={i}>
                 <RespImg src={item.image_fullpath} alt={item.filename} />
@@ -37,7 +37,7 @@ const SearchResults = () => {
                 </div>
               </article>
             ))
-          : null}
+          : <p>Din søgning gav ingen resultater</p>}
       </Page>
     </StyledFavs>
   );
