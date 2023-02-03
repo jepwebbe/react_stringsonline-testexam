@@ -59,6 +59,7 @@ const Header = () => {
       </div>
       <div className="breadcrumbs">
         <Breadcrumbs />
+        <Link to="/bruger">Ordrehistorik</Link>
       </div>
     </StyledHeader>
   );

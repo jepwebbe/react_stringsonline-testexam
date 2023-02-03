@@ -75,7 +75,9 @@ export const InstrumentDetails = () => {
                   productData.id,
                   productData.price,
                   1,
-                  productData.name
+                  productData.name,
+                  productData.image_fullpath,
+                  productData.stock
                 )
               }
             >

@@ -80,7 +80,10 @@ export const InstrumentGroupDetails = () => {
                       product.id,
                       product.price,
                       1,
-                      product.name
+                      product.name,
+                      product.image_fullpath,
+                      product.stock
+
                     )
                   }
                 >

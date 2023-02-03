@@ -107,7 +107,12 @@ export const StyledHeader = styled.header`
     }
   }
   .breadcrumbs {
-    grid-area: 4 / 1;
+    grid-area: 4 / 1 / 4 / -1;
+    display: flex;
+    justify-content: space-between;
+    a {
+      color: ${props => props.theme.colors.theGreen};
+    }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.xl}) {
     nav,

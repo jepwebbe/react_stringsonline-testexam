@@ -4,6 +4,7 @@ import Basses from "../../Pages/Basses";
 import BrandDetailsInstrument from "../../Pages/BrandDetailsInstrument";
 import Brands from "../../Pages/Brands";
 import BrandsDetails from "../../Pages/BrandsDetails";
+import Checkout from "../../Pages/Checkout";
 import Home from "../../Pages/Home/Home";
 import { InstrumentDetails } from "../../Pages/InstrumentDetails";
 import { InstrumentGroupDetails } from "../../Pages/InstrumentGroupDetails";
@@ -31,6 +32,7 @@ const Router = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/bruger" element={<User />} />
       <Route path="/search" element={<SearchResults />} />
+      <Route path="/kasse" element={<Checkout />} />
 
 
 

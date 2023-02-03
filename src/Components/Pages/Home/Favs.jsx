@@ -43,7 +43,9 @@ const Favs = () => {
                             item.id,
                             item.price,
                             1,
-                            item.name
+                            item.name,
+                            item.image_fullpath,
+                            item.stock
                           )
                         }
                       >

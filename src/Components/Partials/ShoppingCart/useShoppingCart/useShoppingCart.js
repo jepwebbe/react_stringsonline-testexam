@@ -20,13 +20,13 @@ export const useShoppingCartStore = create(
         })),
 
       // Increase items by id
-      increaseCartQuantity: (id, price, quant, title) =>
+      increaseCartQuantity: (id, price, quant, title, image, stock) =>
         set((state) => {
           if (state.cartItems.find((item) => item.id === id) == null) {
             return {
               cartItems: [
                 ...state.cartItems,
-                { id: id, price: price, amount: 1 * quant, title: title },
+                { id: id, price: price, amount: 1 * quant, title: title, image: image, stock: stock },
               ],
             };
           } else {

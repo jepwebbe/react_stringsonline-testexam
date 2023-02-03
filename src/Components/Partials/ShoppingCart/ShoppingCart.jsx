@@ -1,7 +1,8 @@
 import React from "react";
 import { useShoppingCartStore } from "./useShoppingCart/useShoppingCart";
-import styled from "styled-components";
-import Dummycart from "./Dummycart";
+import { RespImg } from "../../../Styles/RespImg";
+import { Link } from "react-router-dom";
+import { StyledCart } from "./Styled.ShoppingCart";
 
 const ShoppingCart = () => {
   const {
@@ -15,68 +16,69 @@ const ShoppingCart = () => {
     const itemAmount = cartItems.find((ci) => ci.id === id)?.amount;
     return itemAmount;
   };
+  const formatPrice = new Intl.NumberFormat("da-DK", {
+    style: "currency",
+    currency: "DKK",
+    currencyDisplay: "symbol",
+  });
 
   return (
-    <CartStyled>
-      <Dummycart />
+    <StyledCart>
+      <h2>Din indkøbskurv</h2>
       <ul>
         {cartItems.map((item, ind) => (
           <li key={ind}>
-            <button
-              onClick={() =>
-                increaseCartQuantity(item.id, item.price, 1, item.title)
-              }
-            >
-              +
-            </button>
-            <p>{item.amount}</p>
-            <button
-              onClick={() =>
-                returnAmount(item.id) > 1
-                  ? decreaseCartQuantity(item.id, item.price, 1)
-                  : setDeleteItem(item.id)
-              }
-            >
-              -
-            </button>
-            <p>    stk {item.title} til {item.price} stk, i alt{" "}
-              {item.amount * item.price}
-            </p>
+            <RespImg src={item.image} alt={item.name} />
+            <h3>{item.title}</h3>
+            <div className="stockBox">
+              <div className="quantity">
+                <button
+                  onClick={() =>
+                    increaseCartQuantity(item.id, item.price, 1, item.title)
+                  }
+                >
+                  +
+                </button>
+                <p>{item.amount}</p>
+                <button
+                  onClick={() =>
+                    returnAmount(item.id) > 1
+                      ? decreaseCartQuantity(item.id, item.price, 1)
+                      : setDeleteItem(item.id)
+                  }
+                >
+                  -
+                </button>
+              </div>
+            </div>
+            <p className="stockQuantity">{item.stock} på lager</p>
+
+            <p>{formatPrice.format(item.amount * item.price)}</p>
             <button onClick={() => setDeleteItem(item.id)}>X</button>
           </li>
         ))}
       </ul>
-      <p>
-        Pris i alt{" "}
-        <span>
-          {cartItems.reduce((a, b) => a + b.amount * b.price, 0) + "kr"}
-        </span>
-      </p>
-      <button onClick={() => setEmptyCart()}>Tøm kurven</button>
-    </CartStyled>
+      <div className="proceed">
+        <div className="totals">
+          <div className="money">
+            <p>BELØB</p>
+            <div>
+              <p>
+                {formatPrice.format(
+                  cartItems.reduce((a, b) => a + b.amount * b.price, 0)
+                )}
+              </p>
+            </div>
+            <p>prisen er inkl. moms</p>
+          </div>
+          <button onClick={() => setEmptyCart()}>RYD</button>
+        </div>
+        <button>
+          <Link to="/kasse">TIL KASSEN</Link>
+        </button>
+      </div>
+    </StyledCart>
   );
 };
 
-const CartStyled = styled.article`
-  width: 400px;
-  height: 500px;
-  border: 1px solid ${props => props.theme.colors.theDarkGreen};
-  margin: 0 auto;
-  ul {
-    padding-left: 0;    
-    li {
-    display: flex;
-    padding: 1rem;
-    p {
-        margin: 0;
-    }
-    button {
-        line-height: 1;
-        height: 100%;
-    }
-    button:last-of-type {
-        margin-left: auto;
-    }
-  }}
-`;
-export default ShoppingCart;
+export default ShoppingCart
