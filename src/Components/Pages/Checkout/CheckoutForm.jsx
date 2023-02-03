@@ -60,7 +60,7 @@ const CheckoutForm = () => {
         <input
           onChange={handleChange}
           type="text"
-          name="name"
+          name="firstName"
           value={formData.firstName}
           placeholder="Fornavn"
           maxLength="80"
@@ -69,7 +69,7 @@ const CheckoutForm = () => {
         <input
           onChange={handleChange}
           type="text"
-          name="name"
+          name="lastName"
           value={formData.lastName}
           placeholder="Efternavn"
           maxLength="80"
