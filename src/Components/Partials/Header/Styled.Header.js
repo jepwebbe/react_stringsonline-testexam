@@ -8,6 +8,7 @@ export const StyledHeader = styled.header`
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(12, 1fr);
   padding: ${(props) => props.theme.space.padding};
+
   nav {
     grid-area: 1 / 1 / span 3 / span 8;
     display: grid;
@@ -111,7 +112,7 @@ export const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
     a {
-      color: ${props => props.theme.colors.theGreen};
+      color: ${(props) => props.theme.colors.theGreen};
     }
   }
   @media (max-width: ${(props) => props.theme.breakpoints.xl}) {
@@ -138,25 +139,25 @@ export const StyledHeader = styled.header`
   }
   @media (max-width: ${(props) => props.theme.breakpoints.m}) {
     grid-template-rows: 2fr 2fr 1fr;
-    nav  {
-      grid-area: 1 / span 12 ;
+    nav {
+      grid-area: 1 / span 12;
     }
-   div.rightBox {
-    grid-area: 2 / 1 / 2 / span 12;
-    display: flex;
-    height: 100%;
-    justify-self: center;
-    flex-direction: row-reverse;
-    gap: 1rem;
-    >div {
-      margin: 0;
+    div.rightBox {
+      grid-area: 2 / 1 / 2 / span 12;
+      display: flex;
+      height: 100%;
+      justify-self: center;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      > div {
+        margin: 0;
+      }
+      form button {
+        margin: 0;
+      }
     }
-    form button {
-      margin: 0;
+    .breadcrumbs {
+      grid-area: 3/1;
     }
-  }
-  .breadcrumbs {
-    grid-area: 3/1
-  }
   }
 `;

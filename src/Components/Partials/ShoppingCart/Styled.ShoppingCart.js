@@ -12,6 +12,10 @@ ul {
     column-gap: 1rem;
     padding: 1rem;
     border: 1px solid ${(props) => props.theme.colors.theDarkGreen};
+    div:first-of-type {
+      grid-area: 1/1 / 2 / 1;
+      align-self: center;
+    }
     h3 {
       margin-bottom: 0;
     }

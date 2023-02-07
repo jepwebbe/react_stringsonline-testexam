@@ -1,12 +1,14 @@
-import React from 'react'
-import { useLocation } from 'react-router-dom';
+import React from "react";
+import { useLocation } from "react-router-dom";
+import useBreadcrumbs from "use-react-router-breadcrumbs";
 
 const Breadcrumbs = () => {
-    const location = useLocation();
-    const pathnames = location.pathname.split('/').filter(x => x);
-    return (
-      <div>breadcrumbs</div>
-    );
-  };
+  const breadcrumbs = useBreadcrumbs();
+  return (
+    <React.Fragment>
+      {breadcrumbs.map(({ breadcrumb }) => breadcrumb)}
+    </React.Fragment>
+  );
+};
 
-export default Breadcrumbs
+export default Breadcrumbs;

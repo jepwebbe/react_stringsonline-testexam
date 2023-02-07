@@ -1,4 +1,4 @@
-import create from "zustand"
+import {create} from "zustand"
 import { persist } from "zustand/middleware"
 
 export const useLoginStore = create(persist((set) => ({
@@ -12,4 +12,4 @@ export const useLoginStore = create(persist((set) => ({
         setLogOut: () => set(() => ({ loggedIn: false, userInfo: "", username: "", access_token: "" }))
 
     
-}), { name: "token", getStorage: () => localStorage }))
+}), { name: "loginToken", createJSONStorage: () => localStorage }))

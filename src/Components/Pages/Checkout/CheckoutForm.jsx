@@ -1,17 +1,20 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import env from "react-dotenv";
 import { useNavigate } from "react-router-dom";
 // From from React Hook Form builder
 
 const CheckoutForm = () => {
   const navigate = useNavigate();
-  const [data, setData] = useState([]);
+  const formRef = useRef();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     address: "",
     phone: "",
+    zip: "",
+    city: ""
   });
   // Updates the state whenever anything is written in the input field
   const [isValid, setIsValid] = useState(true);
@@ -25,36 +28,40 @@ const CheckoutForm = () => {
       };
     });
     const emailRegex = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-    if (!emailRegex.test(value)) {
-      setIsValid(false);
-    } else {
-      setIsValid(true);
+    if (name == "email") {
+      if (!emailRegex.test(value)) {
+        setIsValid(false);
+      } else {
+        setIsValid(true);
+      }
     }
   };
 
-  // Uses Axios to post the formdata from the state to Strapi
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!isValid) {
-      return;
-    }
-    axios
-      // posts to imaginative MailChimp account
-      .post("http://mailchimp.us8.list-manage.com/subscribe/post", {
-        data: formData,
-      })
-      .then((response) => {
-        this.setState({});
-        console.log(response.data);
-      })
-
-      .catch((error) => error);
-
-    if (!data) return;
-    navigate("/tak");
-  };
+ // Uses emailJS to post the formdata from the useRef to Strapi
+ const handleSubmit = (event) => {
+  event.preventDefault();
+  if (!isValid) {
+    return;
+  }
+  emailjs
+    .sendForm(
+      env.SERVICE_ID,
+      env.TEMPLATE_ID,
+      formRef.current,
+      env.PUBLIC_KEY
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+      navigate("/tak")
+  }
   return (
-    <form onSubmit={handleSubmit}>
+    <form ref={formRef} onSubmit={handleSubmit}>
       <div>
         <h3>Fakturerings- & leveringsadresse</h3>
         <input

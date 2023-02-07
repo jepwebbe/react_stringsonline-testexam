@@ -77,7 +77,7 @@ export const useShoppingCartStore = create(
     }),
     {
       name: "zustandCart",
-      getStorage: () => localStorage,
+      createJSONStorage: () => localStorage,
     }
   )
 );
