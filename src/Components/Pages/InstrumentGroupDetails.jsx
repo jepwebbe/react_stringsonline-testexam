@@ -8,11 +8,14 @@ import { Page } from "../App/Layout/Page";
 import { RespImg } from "../../Styles/RespImg";
 import { StyledInstrumentGroupDetails } from "./Styled.InstrumentGroupDetails";
 import { useShoppingCartStore } from "../Partials/ShoppingCart/useShoppingCart/useShoppingCart";
+import slugify from "slugify";
+import { useUrl } from "../../Hooks/Slug/useUrl";
 
 export const InstrumentGroupDetails = () => {
   const [productData, setProductData] = useState("");
   const [selectedOption, setSelectedOption] = useState("Producent");
   const { increaseCartQuantity } = useShoppingCartStore();
+  const { setUrl, url } = useUrl();
 
   const { id } = useParams();
   const formatPrice = new Intl.NumberFormat("da-DK", {
@@ -23,14 +26,21 @@ export const InstrumentGroupDetails = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const result = await appService.GetDetails("products/group", id);
-        setProductData(result.data.products);
+        const result = await appService.GetFull(url);
+        for (const parent of result.data.group.products) {
+          parent.slug = slugify(parent.name, {
+            strict: true,
+            lower: true,
+            locale: "da",
+          });
+        }
+        setProductData(result.data.group.products);
       } catch (error) {
         console.error(error);
       }
     };
     getData();
-  }, [id]);
+  }, [url]);
 
   return (
     <MainStyled>
@@ -65,7 +75,8 @@ export const InstrumentGroupDetails = () => {
                 <h2>{product.name}</h2>
                 <p>
                   {product.description_long.substring(0, 450)}...{" "}
-                  <Link to={product.id}>Læs mere</Link>
+                  <Link onClick={() => setUrl(product.request.url)}
+                  to={product.slug}>Læs mere</Link>
                 </p>
               </div>
               <div className="stockBox">

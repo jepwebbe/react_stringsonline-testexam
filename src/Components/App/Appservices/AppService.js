@@ -5,6 +5,12 @@ import authHeader from "./auth-header";
 
 const BASEURL = "stringsonline"
 
+const GetFull = (e) => {
+    return axios.get(`${e}`, {
+        headers: authHeader()
+    })
+}
+
 const GetList = (e) => {
     return axios.get(`${API_URL}/${BASEURL}/${e}`, {
         headers: authHeader()
@@ -45,6 +51,6 @@ const Remove = (e, id) => {
 }
 
 const appService = {
-    GetList, Get, GetDetails, Create, Remove, Login, Update,
+    GetList, Get, GetDetails, Create, Remove, Login, Update, GetFull
 }
 export default appService;

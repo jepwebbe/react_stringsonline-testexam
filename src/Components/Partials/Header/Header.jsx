@@ -11,7 +11,6 @@ import { useShoppingCartStore } from "../ShoppingCart/useShoppingCart/useShoppin
 
 const Header = () => {
   const { loggedIn, setLoggedIn } = useLoginStore();
-  const [searchResults, setSearchResults] = useState([]);
   const { cartItems } = useShoppingCartStore();
   const handleLogout = () => {
     setLoggedIn(false, "", "");

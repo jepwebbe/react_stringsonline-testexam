@@ -31,6 +31,14 @@ export const StyledCheckout = styled.section`
       color: ${(props) => props.theme.colors.theGreen};
       font-family: "TitiliumWeb";
     }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type="number"] {
+      -moz-appearance: textfield;
+    }
     .submit {
       background-color: ${(props) => props.theme.colors.theGreen};
       border: none;

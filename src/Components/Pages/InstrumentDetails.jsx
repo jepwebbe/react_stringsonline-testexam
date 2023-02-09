@@ -8,10 +8,11 @@ import { RespImg } from "../../Styles/RespImg";
 import { StyledInstrumentDetails } from "./Styled.InstrumentDetails";
 import { useShoppingCartStore } from "../Partials/ShoppingCart/useShoppingCart/useShoppingCart";
 import useGetApiDataFromEndpoint from "../../Hooks/useGetApiDataFromEndpoint";
+import { useUrl } from "../../Hooks/Slug/useUrl";
 
 export const InstrumentDetails = () => {
   const [productData, setProductData] = useState("");
-  const { id } = useParams();
+  const { url, setUrl } = useUrl();
   const formatPrice = new Intl.NumberFormat("da-DK", {
     style: "currency",
     currency: "DKK",
@@ -22,15 +23,14 @@ export const InstrumentDetails = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const result = await appService.GetDetails("products", id);
+        const result = await appService.GetFull(url);
         setProductData(result.data.item);
-        console.log(result.data.item);
       } catch (error) {
         console.error(error);
       }
     };
     getData();
-  }, [id]);
+  }, [url]);
   return (
     <MainStyled>
       <Page
@@ -55,7 +55,7 @@ export const InstrumentDetails = () => {
 
         <div>
           <div className="brandlogo">
-            <Link to={"/brands"}>
+            <Link >
               <img
                 src={productData && productData.brand_image}
                 alt={"Et billede af" + productData.brand + "s logo"}

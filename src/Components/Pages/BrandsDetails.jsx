@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useUrl } from "../../Hooks/Slug/useUrl";
 import { MainStyled } from "../../Styles/Styled.Main";
 import appService from "../App/Appservices/AppService";
 import { Page } from "../App/Layout/Page";
 
 function BrandsDetails() {
   const [brand, setBrand] = useState("");
-  const { id } = useParams();
+  const { url } = useUrl();
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const result = await appService.GetDetails("brands", id);
+        const result = await appService.GetFull(url);
         setBrand(result.data.item);
       } catch (error) {
         console.error(error);
       }
     };
     getData();
-  }, [id]);
-  console.log(brand.products);
+  }, [url]);
   return (
     <>
     <Page
