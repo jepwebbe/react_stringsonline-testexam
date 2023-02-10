@@ -3,6 +3,7 @@ import { useShoppingCartStore } from "./useShoppingCart/useShoppingCart";
 import { RespImg } from "../../../Styles/RespImg";
 import { Link } from "react-router-dom";
 import { StyledCart } from "./Styled.ShoppingCart";
+import Dummycart from "./Dummycart";
 
 const ShoppingCart = () => {
   const {
@@ -76,6 +77,7 @@ const ShoppingCart = () => {
         <button>
           <Link to="/kasse">TIL KASSEN</Link>
         </button>
+        <Dummycart />
       </div>
     </StyledCart>
   );

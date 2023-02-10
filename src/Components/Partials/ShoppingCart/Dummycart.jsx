@@ -31,25 +31,26 @@ const Dummycart = () => {
     const getData = async () => {
       try {
         const result = await appService.Get("cart");
-        setFetchedCart(result.data.items);
+        console.log("result er ", result.data)
+        setFetchedCart(result.data.cartlines);
       } catch (error) {
         console.error(error);
       }
     };
     getData();
-  }, []);
+  }, [postCart]);
 
   return (
     <div>
       <div>
         fetchedCart is{" "}
-        {postCart &&
-          fetchedCart.items.map((item, i) => <li key={i}>{item.id}</li>)}
+        {fetchedCart &&
+          fetchedCart.map((item, i) => <li key={i}>{item.name}</li>)}
       </div>
 
       {cartItems &&
         cartItems.map((iitem, ii) => (
-          <li key={ii}>
+          <li key={ii}>Lokal cart is
             {iitem.title}
             <button onClick={() => addToCart(iitem.id, 1)}>Klik mig</button>
           </li>
