@@ -19,17 +19,17 @@ const Router = () => {
     <Routes>
       <Route index path="/" element={<Home />} />
       <Route path="/terms" element={<Terms />} />
-      <Route path="/guitarer/:slug" element={<InstrumentGroupDetails />} />
-      <Route path="/guitarer/:slug/:slug" element={<InstrumentDetails />} />
-      <Route path="/basser/:slug" element={<InstrumentGroupDetails />} />
-      <Route path="/basser/:slug/:slug" element={<InstrumentDetails />} />
-      <Route path="/keyboards/:slug" element={<InstrumentGroupDetails />} />
-      <Route path="/keyboards/:slug/:slug" element={<InstrumentDetails />} />
-      <Route path="/andrestrenge/:slug" element={<InstrumentGroupDetails />} />
-      <Route path="/andrestrenge/:slug/:slug" element={<InstrumentDetails />} />
+      <Route path="/guitarer/:subcat" element={<InstrumentGroupDetails />} />
+      <Route path="/guitarer/:subcat/:item" element={<InstrumentDetails />} />
+      <Route path="/basser/:subcat" element={<InstrumentGroupDetails />} />
+      <Route path="/basser/:subcat/:item" element={<InstrumentDetails />} />
+      <Route path="/keyboards/:subcat" element={<InstrumentGroupDetails />} />
+      <Route path="/keyboards/:subcat/:item" element={<InstrumentDetails />} />
+      <Route path="/andrestrenge/:subcat" element={<InstrumentGroupDetails />} />
+      <Route path="/andrestrenge/:subcat/:item" element={<InstrumentDetails />} />
       <Route path="/brands" element={<Brands />} />
-      <Route path="/brands/:slug" element={<BrandsDetails />} />
-      <Route path="/brands/:slug/:slug" element={<BrandDetailsInstrument />} />
+      <Route path="/brands/:subcat" element={<BrandsDetails />} />
+      <Route path="/brands/:subcat/:item" element={<BrandDetailsInstrument />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/bruger" element={<User />} />
       <Route path="/search" element={<SearchResults />} />
